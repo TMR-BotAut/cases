@@ -1,45 +1,54 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cases — TMR-BotAut | Product Owner & Analista de Requisitos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            --bg: #f5f5f5;
-            --text: #0b2e4a;
-            --border: #d0d0d0;
-            --accent: #c0c0c0;
+            --bg: #ececec;
+            --ink: #161616;
             --dark: #1a1a1a;
+            --text: #262626;
+            --muted: #6f6f6f;
+            --border: #d0d0d0;
+            --silver: #c0c0c0;
             --white: #ffffff;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
             background-color: var(--bg);
             color: var(--text);
             line-height: 1.6;
         }
 
+        .container { max-width: 900px; margin: 0 auto; padding: 0 2rem; }
+
+        .icon {
+            width: 18px;
+            height: 18px;
+            stroke: currentColor;
+            stroke-width: 1.5;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            vertical-align: -3px;
+        }
+
+        /* ---------- HEADER (dark) ---------- */
         header {
-            background-color: var(--white);
-            border-bottom: 1px solid var(--border);
-            padding: 2rem 0;
+            background-color: var(--dark);
+            padding: 1.5rem 0;
             position: sticky;
             top: 0;
             z-index: 100;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 2rem;
+            border-bottom: 1px solid #2c2c2c;
         }
 
         header .container {
@@ -49,51 +58,50 @@
         }
 
         .logo {
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             font-weight: 600;
-            color: var(--text);
+            color: var(--white);
             text-decoration: none;
-            letter-spacing: -0.5px;
+            letter-spacing: -0.3px;
         }
 
+        .logo span { color: var(--silver); font-weight: 400; }
+
+        nav { display: flex; align-items: center; gap: 1.75rem; }
+
         nav a {
-            color: var(--text);
+            color: var(--silver);
             text-decoration: none;
-            font-size: 0.95rem;
-            margin-left: 2rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
             transition: color 0.2s;
         }
 
-        nav a:hover {
-            color: var(--accent);
-        }
+        nav a:hover { color: var(--white); }
 
-        main {
-            padding: 4rem 0;
-        }
+        /* ---------- MAIN ---------- */
+        main { padding: 4.5rem 0; }
 
-        .intro {
-            margin-bottom: 4rem;
-        }
+        .intro { margin-bottom: 3.5rem; }
 
         .intro h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            font-weight: 600;
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: var(--ink);
             letter-spacing: -1px;
+            margin-bottom: 1rem;
         }
 
         .intro p {
-            font-size: 1.1rem;
-            color: #666;
-            max-width: 700px;
+            font-size: 1.05rem;
+            color: var(--muted);
+            max-width: 680px;
         }
 
-        .cases-list {
-            display: flex;
-            flex-direction: column;
-            gap: 3rem;
-        }
+        .cases-list { display: flex; flex-direction: column; gap: 2.5rem; }
 
         .case-item {
             display: grid;
@@ -103,97 +111,64 @@
             padding: 2rem;
             background-color: var(--white);
             border: 1px solid var(--border);
-            border-radius: 0;
+            border-top: 3px solid var(--dark);
             transition: box-shadow 0.2s;
         }
 
-        .case-item:hover {
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-        }
+        .case-item:hover { box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08); }
 
-        .case-item.text-only {
-            grid-template-columns: 1fr;
-        }
+        .case-item.text-only { grid-template-columns: 1fr; }
 
         .case-image {
             width: 100%;
             height: auto;
             border: 1px solid var(--border);
-            border-radius: 0;
             display: block;
         }
 
         .case-content h2 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-            color: var(--text);
+            font-size: 1.4rem;
             font-weight: 600;
+            color: var(--ink);
+            margin-bottom: 0.5rem;
         }
 
         .case-type {
-            font-size: 0.85rem;
-            color: var(--accent);
+            font-size: 0.78rem;
+            color: var(--muted);
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             margin-bottom: 1rem;
-            font-weight: 500;
+            font-weight: 600;
         }
 
         .case-description {
-            font-size: 0.95rem;
-            color: #555;
-            margin-bottom: 1.5rem;
+            font-size: 0.93rem;
+            color: #444;
+            margin-bottom: 1.25rem;
             line-height: 1.7;
         }
 
         .case-link {
-            display: inline-block;
-            color: var(--text);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--ink);
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             font-weight: 500;
-            padding: 0.75rem 1.5rem;
-            border: 1px solid var(--text);
+            padding: 0.7rem 1.4rem;
+            border: 1px solid var(--ink);
             transition: all 0.2s;
-            background-color: transparent;
-            cursor: pointer;
         }
 
-        .case-link:hover {
-            background-color: var(--text);
-            color: var(--white);
-        }
+        .case-link:hover { background-color: var(--ink); color: var(--white); }
 
-        @media (max-width: 768px) {
-            .case-item {
-                grid-template-columns: 1fr;
-            }
-
-            .intro h1 {
-                font-size: 1.8rem;
-            }
-
-            .logo {
-                font-size: 1rem;
-            }
-
-            nav a {
-                margin-left: 1rem;
-                font-size: 0.85rem;
-            }
-
-            header .container {
-                flex-direction: column;
-                gap: 1rem;
-                text-align: center;
-            }
-        }
-
+        /* ---------- FOOTER (dark) ---------- */
         footer {
-            background-color: var(--white);
-            border-top: 1px solid var(--border);
+            background-color: var(--dark);
             padding: 3rem 0;
-            margin-top: 4rem;
+            margin-top: 4.5rem;
         }
 
         .footer-content {
@@ -204,58 +179,60 @@
             gap: 2rem;
         }
 
-        .footer-chibi {
-            width: 100px;
-            height: auto;
-        }
+        .footer-chibi { width: 92px; height: auto; }
 
         .footer-signature {
-            width: 80px;
+            width: 110px;
             height: auto;
-            opacity: 0.7;
+            filter: invert(1);
+            mix-blend-mode: screen;
         }
 
-        .footer-links {
-            display: flex;
-            gap: 1.5rem;
-        }
+        .footer-links { display: flex; gap: 1.5rem; }
 
         .footer-links a {
-            color: var(--text);
+            color: var(--silver);
             text-decoration: none;
             font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
             transition: color 0.2s;
         }
 
-        .footer-links a:hover {
-            color: var(--accent);
-        }
+        .footer-links a:hover { color: var(--white); }
 
-        .footer-text {
-            font-size: 0.85rem;
-            color: #999;
-        }
+        .footer-text { font-size: 0.85rem; color: var(--silver); }
 
+        .footer-text strong { color: var(--white); font-weight: 600; }
+
+        /* ---------- RESPONSIVE ---------- */
         @media (max-width: 768px) {
-            .footer-content {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .footer-links {
-                justify-content: center;
-            }
+            .case-item { grid-template-columns: 1fr; }
+            .intro h1 { font-size: 1.8rem; }
+            header .container { flex-direction: column; gap: 1rem; text-align: center; }
+            .footer-content { flex-direction: column; text-align: center; }
+            .footer-links { justify-content: center; }
         }
     </style>
 </head>
 <body>
     <header>
         <div class="container">
-            <a href="#" class="logo">TMR-BotAut</a>
+            <a href="#" class="logo">TMR<span>-BotAut</span></a>
             <nav>
-                <a href="https://github.com/TMR-BotAut">GitHub</a>
-                <a href="https://linkedin.com/in/thais-martins-rodrigues">LinkedIn</a>
-                <a href="mailto:tmartins1089@gmail.com">Contato</a>
+                <a href="https://github.com/TMR-BotAut">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"/></svg>
+                    GitHub
+                </a>
+                <a href="https://linkedin.com/in/thais-martins-rodrigues">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M8 11v5"/><path d="M8 8v.01"/><path d="M12 16v-5"/><path d="M16 16v-3a2 2 0 1 0 -4 0"/><path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z"/></svg>
+                    LinkedIn
+                </a>
+                <a href="mailto:tmartins1089@gmail.com">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z"/><path d="M3 7l9 6l9 -6"/></svg>
+                    Contato
+                </a>
             </nav>
         </div>
     </header>
@@ -279,7 +256,10 @@
                         <p class="case-description">Sistema web de gestão de cotações, embarques e margens para operação de comércio exterior. Responsável pelo produto, requisitos, fluxo de dados e homologação — desenvolvido por parceiro terceirizado.</p>
                         <p class="case-description"><strong>Contexto:</strong> Histórico comercial vivendo em planilhas inconsistentes, sem regras de negócio operando no sistema. <strong>Ação:</strong> Defini requisitos (fatores de margem, alertas de vencimento), priorizei funcionalidades, conduzi migração de dados (tratando inconsistências de formato e moeda) e executei migrations SQL em homologação e produção.</p>
                         <p class="case-description"><strong>Resultado:</strong> Base de dados consolidada, validada e confiável; regras de negócio operando no sistema; escopo mantido enxuto por decisões conscientes de priorização.</p>
-                        <a href="https://github.com/TMR-BotAut/Firsthtml" class="case-link">Ver no GitHub</a>
+                        <a href="https://github.com/TMR-BotAut/Firsthtml" class="case-link">
+                            Ver no GitHub
+                            <svg class="icon" viewBox="0 0 24 24"><path d="M17 7l-10 10"/><path d="M8 7l9 0l0 9"/></svg>
+                        </a>
                     </div>
                 </article>
 
@@ -294,7 +274,10 @@
                         <p class="case-description">Pipeline ponta a ponta que automatiza envio de mensagens em massa a partir de listas em Excel — substituindo processo manual, lento e sujeito a erro.</p>
                         <p class="case-description"><strong>Contexto:</strong> Rotina comercial repetitiva com disparos manuais. <strong>Ação:</strong> Integrei WAHA (WhatsApp API), Flask, Excel (openpyxl) e Docker com disparo agendado via Windows Task Scheduler. Configurei webhooks, diagnostiquei problemas de rede em container e planejei fallbacks.</p>
                         <p class="case-description"><strong>Resultado:</strong> Pipeline funcional que lê planilha, processa e distribui automaticamente; base containerizada e reaproveitável para novas rotinas; maior gargalo identificado foi conectividade entre serviços, não código.</p>
-                        <a href="https://github.com/TMR-BotAut/bot-whatsapp" class="case-link">Ver no GitHub</a>
+                        <a href="https://github.com/TMR-BotAut/bot-whatsapp" class="case-link">
+                            Ver no GitHub
+                            <svg class="icon" viewBox="0 0 24 24"><path d="M17 7l-10 10"/><path d="M8 7l9 0l0 9"/></svg>
+                        </a>
                     </div>
                 </article>
 
@@ -335,16 +318,25 @@
         <div class="container">
             <div class="footer-content">
                 <div>
-                    <img src="avatar.jpeg" alt="Chibi avatar" class="footer-chibi">
+                    <img src="avatar.jpeg" alt="Avatar" class="footer-chibi">
                 </div>
                 <div style="flex: 1;">
-                    <p class="footer-text">Thais Martins — Product Owner & Analista de Requisitos</p>
-                    <p class="footer-text">Rio de Janeiro, RJ | tmartins1089@gmail.com | (21) 96521-2409</p>
+                    <p class="footer-text"><strong>Thais Martins</strong> — Product Owner &amp; Analista de Requisitos</p>
+                    <p class="footer-text">Rio de Janeiro, RJ · tmartins1089@gmail.com · (21) 96521-2409</p>
                 </div>
                 <div class="footer-links">
-                    <a href="https://github.com/TMR-BotAut">GitHub</a>
-                    <a href="https://linkedin.com/in/thais-martins-rodrigues">LinkedIn</a>
-                    <a href="mailto:tmartins1089@gmail.com">Email</a>
+                    <a href="https://github.com/TMR-BotAut">
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"/></svg>
+                        GitHub
+                    </a>
+                    <a href="https://linkedin.com/in/thais-martins-rodrigues">
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M8 11v5"/><path d="M8 8v.01"/><path d="M12 16v-5"/><path d="M16 16v-3a2 2 0 1 0 -4 0"/><path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z"/></svg>
+                        LinkedIn
+                    </a>
+                    <a href="mailto:tmartins1089@gmail.com">
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z"/><path d="M3 7l9 6l9 -6"/></svg>
+                        Email
+                    </a>
                 </div>
                 <div>
                     <img src="assinatura.png" alt="Assinatura TMR" class="footer-signature">
@@ -354,4 +346,3 @@
     </footer>
 </body>
 </html>
-
