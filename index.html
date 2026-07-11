@@ -228,9 +228,10 @@
         }
         .case-image { cursor: zoom-in; transition: opacity 0.2s; }
         .case-image:hover { opacity: 0.9; }
-        .case-gallery { display: flex; flex-wrap: wrap; gap: 0.75rem; }
-        .case-gallery .case-image:first-child { width: 100%; }
-        .case-gallery .case-image:not(:first-child) { width: calc(50% - 0.375rem); }
+        .case-gallery { display: flex; flex-direction: column; gap: 0.75rem; }
+        .gallery-compact { flex-direction: row; flex-wrap: wrap; }
+        .gallery-compact .case-image:first-child { width: 100%; }
+        .gallery-compact .case-image:not(:first-child) { width: calc(50% - 0.375rem); }
         #lightbox { position: fixed; inset: 0; background: rgba(10,10,10,0.93); display: none; align-items: center; justify-content: center; z-index: 999; cursor: zoom-out; padding: 2rem; }
         #lightbox.open { display: flex; }
         #lightbox img { max-width: 92vw; max-height: 92vh; border: 1px solid var(--border); }
@@ -281,9 +282,10 @@
 
                 <!-- Case 2: WhatsApp Automation -->
                 <article class="case-item">
-                    <div class="case-gallery">
-                        <img src="whatsapp-print.jpg" alt="WhatsApp Bot — Automação de Prospecção" class="case-image">
-                        <img src="whatsapp-print-2.jpeg" alt="Código do gerador de relatório diário" class="case-image">
+                    <div class="case-gallery gallery-compact">
+                        <img src="whatsapp-print.jpeg" alt="Código de validação antes do disparo" class="case-image">
+                        <img src="whatsapp-print-2.jpeg" alt="Código de personalização e envio" class="case-image">
+                        <img src="whatsapp-print-3.jpeg" alt="Relatório diário automático no WhatsApp" class="case-image">
                     </div>
                     <div class="case-content">
                         <div class="case-type">Desenvolvedor / Arquiteto</div>
