@@ -187,7 +187,11 @@
             gap: 2rem;
         }
 
-        .footer-chibi { width: 120px; height: auto; }
+        .footer-chibi { width: 110px; height: 110px; object-fit: cover; border-radius: 50%; border: 2px solid var(--silver); }
+
+        .footer-name { font-size: 1rem; font-weight: 600; color: var(--white); }
+
+        .footer-role { font-size: 0.85rem; color: var(--silver); margin-bottom: 0.4rem; }
 
         .footer-signature {
             width: 110px;
@@ -320,8 +324,9 @@
                     <img src="avatar.jpeg" alt="Avatar" class="footer-chibi">
                 </div>
                 <div style="flex: 1;">
-                    <p class="footer-text"><strong>Thais Martins</strong> — Product Owner &amp; Analista de Requisitos</p>
-                    <p class="footer-text">Rio de Janeiro, RJ · tmartins1089@gmail.com · (21) 96521-2409</p>
+                    <p class="footer-name">Thais Martins</p>
+                    <p class="footer-role">Product Owner · Analista de Requisitos</p>
+                    <p class="footer-text">Rio de Janeiro, RJ · tmartins1089@gmail.com · <span style="white-space: nowrap;">(21) 96521-2409</span></p>
                 </div>
                 <div class="footer-links">
                     <a href="https://github.com/TMR-BotAut">
