@@ -228,7 +228,9 @@
         }
         .case-image { cursor: zoom-in; transition: opacity 0.2s; }
         .case-image:hover { opacity: 0.9; }
-        .case-gallery { display: flex; flex-direction: column; gap: 0.75rem; }
+        .case-gallery { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+        .case-gallery .case-image:first-child { width: 100%; }
+        .case-gallery .case-image:not(:first-child) { width: calc(50% - 0.375rem); }
         #lightbox { position: fixed; inset: 0; background: rgba(10,10,10,0.93); display: none; align-items: center; justify-content: center; z-index: 999; cursor: zoom-out; padding: 2rem; }
         #lightbox.open { display: flex; }
         #lightbox img { max-width: 92vw; max-height: 92vh; border: 1px solid var(--border); }
