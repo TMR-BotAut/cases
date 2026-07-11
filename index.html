@@ -226,6 +226,12 @@
             .footer-content { flex-direction: column; text-align: center; }
             .footer-links { justify-content: center; }
         }
+        .case-image { cursor: zoom-in; transition: opacity 0.2s; }
+        .case-image:hover { opacity: 0.9; }
+        .case-gallery { display: flex; flex-direction: column; gap: 0.75rem; }
+        #lightbox { position: fixed; inset: 0; background: rgba(10,10,10,0.93); display: none; align-items: center; justify-content: center; z-index: 999; cursor: zoom-out; padding: 2rem; }
+        #lightbox.open { display: flex; }
+        #lightbox img { max-width: 92vw; max-height: 92vh; border: 1px solid var(--border); }
     </style>
 </head>
 <body>
@@ -256,7 +262,7 @@
             <section class="cases-list">
                 <!-- Case 1: PHDbid -->
                 <article class="case-item">
-                    <div>
+                    <div class="case-gallery">
                         <img src="phdbid-print.jpeg" alt="PHDbid — Sistema de Gestão Comercial" class="case-image">
                     </div>
                     <div class="case-content">
@@ -271,7 +277,7 @@
 
                 <!-- Case 2: WhatsApp Automation -->
                 <article class="case-item">
-                    <div>
+                    <div class="case-gallery">
                         <img src="whatsapp-print.jpg" alt="WhatsApp Bot — Automação de Prospecção" class="case-image">
                     </div>
                     <div class="case-content">
@@ -348,5 +354,15 @@
             </div>
         </div>
     </footer>
+    <div id="lightbox"><img src="" alt="Zoom"></div>
+    <script>
+        const lb = document.getElementById('lightbox');
+        const lbImg = lb.querySelector('img');
+        document.querySelectorAll('.case-image').forEach(img => {
+            img.addEventListener('click', () => { lbImg.src = img.src; lb.classList.add('open'); });
+        });
+        lb.addEventListener('click', () => lb.classList.remove('open'));
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') lb.classList.remove('open'); });
+    </script>
 </body>
 </html>
