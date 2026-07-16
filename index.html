@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cases — TMR-BotAut | Product Owner & Analista de Requisitos</title>
+    <title>Cases — Thais Martins | Product Owner & Analista de Requisitos</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -57,15 +57,7 @@
             align-items: center;
         }
 
-        .logo {
-            font-size: 1.15rem;
-            font-weight: 600;
-            color: var(--white);
-            text-decoration: none;
-            letter-spacing: -0.3px;
-        }
-
-        .logo span { color: var(--silver); font-weight: 400; }
+        .logo { display: block; }
 
         .logo-signature {
             height: 40px;
@@ -89,6 +81,30 @@
         }
 
         nav a:hover { color: var(--white); }
+
+        .lang-toggle {
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+            margin-left: 0.5rem;
+            font-size: 0.85rem;
+        }
+
+        .lang-btn {
+            background: none;
+            border: none;
+            color: var(--muted);
+            font-family: inherit;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            padding: 0.15rem 0.2rem;
+            transition: color 0.2s;
+        }
+
+        .lang-btn:hover { color: var(--silver); }
+        .lang-btn.active { color: var(--white); border-bottom: 2px solid var(--silver); }
+        .lang-sep { color: #3a3a3a; }
 
         /* ---------- MAIN ---------- */
         main { padding: 4.5rem 0; }
@@ -132,7 +148,16 @@
             height: auto;
             border: 1px solid var(--border);
             display: block;
+            cursor: zoom-in;
+            transition: opacity 0.2s;
         }
+
+        .case-image:hover { opacity: 0.9; }
+
+        .case-gallery { display: flex; flex-direction: column; gap: 0.75rem; }
+        .gallery-compact { flex-direction: row; flex-wrap: wrap; }
+        .gallery-compact .case-image:first-child { width: 100%; }
+        .gallery-compact .case-image:not(:first-child) { width: calc(50% - 0.375rem); }
 
         .case-content h2 {
             font-size: 1.4rem;
@@ -157,20 +182,16 @@
             line-height: 1.7;
         }
 
-        .case-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--ink);
-            text-decoration: none;
-            font-size: 0.88rem;
-            font-weight: 500;
-            padding: 0.7rem 1.4rem;
-            border: 1px solid var(--ink);
-            transition: all 0.2s;
+        .case-impact {
+            font-size: 0.93rem;
+            color: #1F4E7A;
+            margin-bottom: 1.25rem;
+            line-height: 1.7;
         }
 
-        .case-link:hover { background-color: var(--ink); color: var(--white); }
+        #lightbox { position: fixed; inset: 0; background: rgba(10,10,10,0.93); display: none; align-items: center; justify-content: center; z-index: 999; cursor: zoom-out; padding: 2rem; }
+        #lightbox.open { display: flex; }
+        #lightbox img { max-width: 92vw; max-height: 92vh; border: 1px solid var(--border); }
 
         /* ---------- FOOTER (dark) ---------- */
         footer {
@@ -216,25 +237,15 @@
 
         .footer-text { font-size: 0.85rem; color: var(--silver); }
 
-        .footer-text strong { color: var(--white); font-weight: 600; }
-
         /* ---------- RESPONSIVE ---------- */
         @media (max-width: 768px) {
             .case-item { grid-template-columns: 1fr; }
             .intro h1 { font-size: 1.8rem; }
             header .container { flex-direction: column; gap: 1rem; text-align: center; }
+            nav { flex-wrap: wrap; justify-content: center; }
             .footer-content { flex-direction: column; text-align: center; }
             .footer-links { justify-content: center; }
         }
-        .case-image { cursor: zoom-in; transition: opacity 0.2s; }
-        .case-image:hover { opacity: 0.9; }
-        .case-gallery { display: flex; flex-direction: column; gap: 0.75rem; }
-        .gallery-compact { flex-direction: row; flex-wrap: wrap; }
-        .gallery-compact .case-image:first-child { width: 100%; }
-        .gallery-compact .case-image:not(:first-child) { width: calc(50% - 0.375rem); }
-        #lightbox { position: fixed; inset: 0; background: rgba(10,10,10,0.93); display: none; align-items: center; justify-content: center; z-index: 999; cursor: zoom-out; padding: 2rem; }
-        #lightbox.open { display: flex; }
-        #lightbox img { max-width: 92vw; max-height: 92vh; border: 1px solid var(--border); }
     </style>
 </head>
 <body>
@@ -250,7 +261,15 @@
                     <svg class="icon" viewBox="0 0 24 24"><path d="M8 11v5"/><path d="M8 8v.01"/><path d="M12 16v-5"/><path d="M16 16v-3a2 2 0 1 0 -4 0"/><path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z"/></svg>
                     LinkedIn
                 </a>
-                <a href="#contato"><svg class="icon" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z"/><path d="M3 7l9 6l9 -6"/></svg>Contato</a>
+                <a href="#contato">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z"/><path d="M3 7l9 6l9 -6"/></svg>
+                    <span data-key="nav_contact">Contato</span>
+                </a>
+                <span class="lang-toggle">
+                    <button class="lang-btn" id="btn-pt" onclick="setLang('pt')">PT</button>
+                    <span class="lang-sep">|</span>
+                    <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+                </span>
             </nav>
         </div>
     </header>
@@ -258,8 +277,8 @@
     <main>
         <div class="container">
             <section class="intro">
-                <h1>Casos de Sucesso</h1>
-                <p>Projetos que executei como Product Owner, Analista de Requisitos e desenvolvedor — do requisito à produção, resolvendo problemas reais em negócios e tecnologia.</p>
+                <h1 data-key="intro_h1">Casos de Sucesso</h1>
+                <p data-key="intro_p">Transformo ambiguidade em critérios que o time consegue testar — do requisito à produção, como Product Owner, Analista de Requisitos e desenvolvedora.</p>
             </section>
 
             <section class="cases-list">
@@ -271,12 +290,12 @@
                         <img src="phdbid-print-3.jpeg" alt="PHDbid — detalhe do sistema" class="case-image">
                     </div>
                     <div class="case-content">
-                        <div class="case-type">Product Owner</div>
-                        <h2>PHDbid</h2>
-                        <p class="case-description">Sistema web de gestão de cotações, embarques e margens para operação de comércio exterior. Responsável pelo produto, requisitos, fluxo de dados e homologação — desenvolvido por parceiro terceirizado.</p>
-                        <p class="case-description"><strong>Contexto:</strong> Histórico comercial vivendo em planilhas inconsistentes, sem regras de negócio operando no sistema. <strong>Ação:</strong> Defini requisitos (fatores de margem, alertas de vencimento), priorizei funcionalidades, conduzi migração de dados (tratando inconsistências de formato e moeda) e executei migrations SQL em homologação e produção.</p>
-                        <p class="case-description"><strong>Resultado:</strong> Base de dados consolidada, validada e confiável; regras de negócio operando no sistema; escopo mantido enxuto por decisões conscientes de priorização.</p>
-                        
+                        <div class="case-type" data-key="c1_type">Product Owner</div>
+                        <h2 data-key="c1_title">PHDbid — Gestão Comercial (comércio exterior)</h2>
+                        <p class="case-description" data-key="c1_challenge"></p>
+                        <p class="case-description" data-key="c1_did"></p>
+                        <p class="case-description" data-key="c1_decision"></p>
+                        <p class="case-impact" data-key="c1_impact"></p>
                     </div>
                 </article>
 
@@ -288,42 +307,48 @@
                         <img src="whatsapp-print-3.jpeg" alt="Relatório diário automático no WhatsApp" class="case-image">
                     </div>
                     <div class="case-content">
-                        <div class="case-type">Desenvolvedor / Arquiteto</div>
-                        <h2>Automação de Prospecção via WhatsApp</h2>
-                        <p class="case-description">Pipeline ponta a ponta que automatiza envio de mensagens em massa a partir de listas em Excel — substituindo processo manual, lento e sujeito a erro.</p>
-                        <p class="case-description"><strong>Contexto:</strong> Rotina comercial repetitiva com disparos manuais. <strong>Ação:</strong> Integrei WAHA (WhatsApp API), Flask, Excel (openpyxl) e Docker com disparo agendado via Windows Task Scheduler. Configurei webhooks, diagnostiquei problemas de rede em container e planejei fallbacks.</p>
-                        <p class="case-description"><strong>Resultado:</strong> Pipeline funcional que lê planilha, processa e distribui automaticamente; base containerizada e reaproveitável para novas rotinas; maior gargalo identificado foi conectividade entre serviços, não código.</p>
-                        
+                        <div class="case-type" data-key="c2_type">Desenvolvedora / Arquiteta</div>
+                        <h2 data-key="c2_title">Automação de Prospecção via WhatsApp</h2>
+                        <p class="case-description" data-key="c2_challenge"></p>
+                        <p class="case-description" data-key="c2_did"></p>
+                        <p class="case-description" data-key="c2_decision"></p>
+                        <p class="case-impact" data-key="c2_impact"></p>
                     </div>
                 </article>
 
-                <!-- Case 3: YDUQS (text only) -->
+                <!-- Case 3: YDUQS -->
                 <article class="case-item text-only">
                     <div class="case-content">
-                        <div class="case-type">Analista de Projetos</div>
-                        <h2>YDUQS — Gestão de Infraestrutura de Laboratórios</h2>
-                        <p class="case-description"><strong>Contexto:</strong> Grupo educacional com parque de laboratórios heterogêneo atendendo cursos com exigências distintas de processamento. <strong>Ação:</strong> Mapeei e classifiquei máquinas por uso, acompanhei status via dados coletados em rede (Azure), elaborei cronograma de atualização, manutenção e substituição, e apresentei evolução semanalmente à diretoria.</p>
-                        <p class="case-description"><strong>Resultado:</strong> Economia ao substituir componentes em vez de máquinas inteiras; manutenção direcionada por dados, sem deslocamento desnecessário; aprendizado: consolidar indicadores em painel único desde o início para priorizar por criticidade, não apenas por idade.</p>
+                        <div class="case-type" data-key="c3_type">Analista de Projetos</div>
+                        <h2 data-key="c3_title">YDUQS — Gestão de Infraestrutura de Laboratórios</h2>
+                        <p class="case-description" data-key="c3_challenge"></p>
+                        <p class="case-description" data-key="c3_did"></p>
+                        <p class="case-description" data-key="c3_decision"></p>
+                        <p class="case-impact" data-key="c3_impact"></p>
                     </div>
                 </article>
 
-                <!-- Case 4: MEI Leads (text only) -->
+                <!-- Case 4: MEI Leads -->
                 <article class="case-item text-only">
                     <div class="case-content">
-                        <div class="case-type">Desenvolvedor</div>
-                        <h2>Coletor Automatizado de Leads (MEI + Celular)</h2>
-                        <p class="case-description"><strong>Contexto:</strong> Prospecção B2B precisava de listas de empresas MEI recém-abertas com telefone celular, por cidade e período — coleta manual inviável. <strong>Ação:</strong> Automatizei consumo de duas APIs públicas (busca CNPJ + telefone), tratei rate limit com backoff progressivo, normalizei dados (CNPJ e celular em padrão brasileiro) e gerei planilha Excel formatada.</p>
-                        <p class="case-description"><strong>Resultado:</strong> Lista de prospecção gerada automaticamente por cidade/período; coleta resiliente que retoma de onde parou em caso de interrupção; aprendizado: deduplicador e registro de origem por lead facilita medir qualidade e evitar contatos repetidos.</p>
+                        <div class="case-type" data-key="c4_type">Desenvolvedora</div>
+                        <h2 data-key="c4_title">Coletor Automatizado de Leads (MEI + Celular)</h2>
+                        <p class="case-description" data-key="c4_challenge"></p>
+                        <p class="case-description" data-key="c4_did"></p>
+                        <p class="case-description" data-key="c4_decision"></p>
+                        <p class="case-impact" data-key="c4_impact"></p>
                     </div>
                 </article>
 
-                <!-- Case 5: TIM (text only) -->
+                <!-- Case 5: TIM -->
                 <article class="case-item text-only">
                     <div class="case-content">
-                        <div class="case-type">Analista de Projetos</div>
-                        <h2>TIM — Transformação Digital: Sistema Legado → ServiceNow</h2>
-                        <p class="case-description"><strong>Contexto:</strong> Operadora de telecom com sistema legado usado por ~5.000 usuários precisava migrar para ServiceNow em ambiente de alta complexidade operacional, 8 meses de prazo. <strong>Ação:</strong> Fui referência funcional entre solicitantes (stakeholders) e equipe terceirizada; destrinchei demandas ambíguas, formalizei requisitos em documentação estruturada, conduzi apresentações alinhando decisões entre públicos técnicos e executivos.</p>
-                        <p class="case-description"><strong>Resultado:</strong> Migração concluída dentro do prazo, impactando ~5.000 usuários; demandas convertidas em requisitos claros, reduzindo idas e vindas; aprendizado: registrar critérios de aceite explicitamente desde o início encurta homologação e evita interpretações diferentes.</p>
+                        <div class="case-type" data-key="c5_type">Analista de Requisitos</div>
+                        <h2 data-key="c5_title">TIM — Sistema Legado → ServiceNow (~5.000 usuários)</h2>
+                        <p class="case-description" data-key="c5_challenge"></p>
+                        <p class="case-description" data-key="c5_did"></p>
+                        <p class="case-description" data-key="c5_decision"></p>
+                        <p class="case-impact" data-key="c5_impact"></p>
                     </div>
                 </article>
             </section>
@@ -338,7 +363,7 @@
                 </div>
                 <div style="flex: 1;">
                     <p class="footer-name">Thais Martins</p>
-                    <p class="footer-role">Product Owner · Analista de Requisitos</p>
+                    <p class="footer-role" data-key="footer_role">Product Owner · Analista de Requisitos</p>
                     <p class="footer-text">Rio de Janeiro, RJ · tmartins1089@gmail.com · <span style="white-space: nowrap;">(21) 96521-2409</span></p>
                 </div>
                 <div class="footer-links">
@@ -361,8 +386,11 @@
             </div>
         </div>
     </footer>
+
     <div id="lightbox"><img src="" alt="Zoom"></div>
+
     <script>
+        // ---------- Lightbox ----------
         const lb = document.getElementById('lightbox');
         const lbImg = lb.querySelector('img');
         document.querySelectorAll('.case-image').forEach(img => {
@@ -370,6 +398,112 @@
         });
         lb.addEventListener('click', () => lb.classList.remove('open'));
         document.addEventListener('keydown', e => { if (e.key === 'Escape') lb.classList.remove('open'); });
+
+        // ---------- Idiomas ----------
+        const i18n = {
+            pt: {
+                nav_contact: 'Contato',
+                intro_h1: 'Casos de Sucesso',
+                intro_p: 'Transformo ambiguidade em critérios que o time consegue testar — do requisito à produção, como Product Owner, Analista de Requisitos e desenvolvedora.',
+                footer_role: 'Product Owner · Analista de Requisitos',
+
+                c1_type: 'Product Owner',
+                c1_title: 'PHDbid — Gestão Comercial (comércio exterior)',
+                c1_challenge: '<strong>Desafio:</strong> Três anos de histórico comercial (2024–2026) espalhados em planilhas inconsistentes — estruturas de coluna divergentes, moeda "REAL" vs. "BRL" — e nenhuma regra de negócio operando no sistema.',
+                c1_did: '<strong>O que fiz:</strong> Estruturei a migração em etapas avaliáveis: mapeamento de schema → classificação de inconsistências → validação com aprovação a cada etapa. Formalizei as regras de negócio (fatores de margem, alertas de vencimento) e estabeleci os critérios de aceite que cada versão precisava passar nos três ambientes (dev → homologação → produção).',
+                c1_decision: '<strong>Decisão-chave:</strong> Mantive o NP manual e removi um badge de baixo valor — exclusões conscientes de escopo que mantiveram o produto enxuto em vez de "completo".',
+                c1_impact: '<strong>Impacto:</strong> 266 oportunidades, 528 itens de cotação e ~924 registros de concorrentes centralizados em uma fonte única validada, em 13 módulos; margem calculada automaticamente em 100% dos itens e preços de concorrentes rastreáveis para análise de win/loss — inteligência de mercado que antes se perdia.',
+
+                c2_type: 'Desenvolvedora / Arquiteta',
+                c2_title: 'Automação de Prospecção via WhatsApp',
+                c2_challenge: '<strong>Desafio:</strong> Rotina comercial manual — envios repetitivos a partir de planilhas — lenta, sujeita a erro e sem visibilidade de resultado.',
+                c2_did: '<strong>O que fiz:</strong> Estruturei o pipeline como quality gates sequenciais: integridade do arquivo → normalização do telefone (regra do 9º dígito) → verificação de WhatsApp ativo → disparo controlado → relatório diário automático. Na última execução verificada, 117 leads avaliados e 114 validados antes do disparo.',
+                c2_decision: '<strong>Decisão-chave:</strong> Leads reprovados na verificação são bloqueados definitivamente das campanhas — troquei tamanho de lista por qualidade de entrega e conformidade.',
+                c2_impact: '<strong>Impacto:</strong> Trabalho manual eliminado; relatório diário acompanha um funil de 136 leads (abordados / interessados / recusaram / ignorados) com execuções sem erro — visibilidade pronta para decisão.',
+
+                c3_type: 'Analista de Projetos',
+                c3_title: 'YDUQS — Gestão de Infraestrutura de Laboratórios',
+                c3_challenge: '<strong>Desafio:</strong> Parque de laboratórios heterogêneo, cursos com exigências distintas de processamento e risco de gasto desnecessário com troca de máquinas inteiras.',
+                c3_did: '<strong>O que fiz:</strong> Mapeei e classifiquei o parque por uso, cruzei a classificação com dados de status coletados em rede (Azure) e estruturei o cronograma de atualização, manutenção e substituição, com apresentação semanal à diretoria.',
+                c3_decision: '<strong>Decisão-chave:</strong> Priorizei a substituição de componentes (memória) em vez da troca de máquinas inteiras — decisão orientada por dados de uso, não por idade do equipamento.',
+                c3_impact: '<strong>Impacto:</strong> Economia direta em hardware e manutenção direcionada por dados, sem deslocamento desnecessário da equipe local.',
+
+                c4_type: 'Desenvolvedora',
+                c4_title: 'Coletor Automatizado de Leads (MEI + Celular)',
+                c4_challenge: '<strong>Desafio:</strong> Prospecção B2B dependia de coleta manual inviável de empresas recém-abertas com telefone celular válido, por cidade e período.',
+                c4_did: '<strong>O que fiz:</strong> Automatizei o consumo de duas APIs públicas, estabeleci normalização e validação de dados (CNPJ e celular no padrão brasileiro) e tratei o rate limit com backoff progressivo e salvamento de progresso.',
+                c4_decision: '<strong>Decisão-chave:</strong> Projetei a coleta para ser resiliente — retoma de onde parou — em vez de rápida e frágil.',
+                c4_impact: '<strong>Impacto:</strong> Lista de prospecção gerada automaticamente por cidade/período, eliminando a busca manual. Aprendizado que virou princípio: rastreabilidade e qualidade de dados são requisito da primeira etapa do pipeline, não correção da última.',
+
+                c5_type: 'Analista de Requisitos',
+                c5_title: 'TIM — Sistema Legado → ServiceNow (~5.000 usuários)',
+                c5_challenge: '<strong>Desafio:</strong> Sistema legado sem documentação, usado por ~5.000 pessoas, com 8 meses de prazo para migrar ao ServiceNow — requisitos que só existiam na cabeça das áreas.',
+                c5_did: '<strong>O que fiz:</strong> Decompus demandas ambíguas das áreas operacionais em requisitos estruturados e testáveis; conduzi testes funcionais e rodadas de homologação; traduzi decisões para públicos técnicos e executivos, cada um na sua língua.',
+                c5_decision: '<strong>Decisão-chave:</strong> Formalizei critérios de aceite explícitos por demanda antes do desenvolvimento — removendo a ambiguidade na origem em vez de descobri-la na homologação.',
+                c5_impact: '<strong>Impacto:</strong> Migração entregue no prazo de 8 meses para ~5.000 usuários; ciclos de retrabalho com o time terceirizado caíram com a eliminação de interpretações divergentes.'
+            },
+            en: {
+                nav_contact: 'Contact',
+                intro_h1: 'Case Studies',
+                intro_p: 'I turn ambiguity into criteria a team can test against — from requirement to production, as Product Owner, Requirements Analyst and developer.',
+                footer_role: 'Product Owner · Requirements Analyst',
+
+                c1_type: 'Product Owner',
+                c1_title: 'PHDbid — Commercial Management (foreign trade)',
+                c1_challenge: '<strong>Challenge:</strong> Three years of commercial history (2024–2026) scattered across inconsistent spreadsheets — divergent column structures, mixed currency labels — and no business rules running in the system.',
+                c1_did: '<strong>What I did:</strong> Structured the migration into evaluable stages: schema mapping → inconsistency classification → staged validation with sign-off. Formalized business rules (margin factors, expiry alerts) and established the acceptance criteria each release had to pass across three environments (dev → staging → production).',
+                c1_decision: '<strong>Key decision:</strong> Kept part-number entry manual and removed a low-value status badge — deliberate scope exclusions that kept the product lean instead of feature-complete.',
+                c1_impact: '<strong>Impact:</strong> 266 opportunities, 528 quotation items and ~924 competitor price records centralized into a single validated source of truth spanning 13 modules; margin factors calculated automatically on 100% of items, and competitor pricing traceable for win/loss analysis — market intelligence that was previously lost.',
+
+                c2_type: 'Developer / Architect',
+                c2_title: 'WhatsApp Outreach Automation',
+                c2_challenge: '<strong>Challenge:</strong> A manual outreach routine — repetitive sends from spreadsheets — slow, failure-prone, and with no visibility of outcomes.',
+                c2_did: '<strong>What I did:</strong> Structured the pipeline as sequential quality gates: file integrity check → phone normalization (Brazilian 9th-digit rule) → WhatsApp-existence verification → controlled dispatch → automated daily report. In the last verified run, 117 leads were assessed and 114 validated before dispatch.',
+                c2_decision: '<strong>Key decision:</strong> Leads that fail verification are permanently blocked from future campaigns — trading list size for delivery quality and compliance.',
+                c2_impact: '<strong>Impact:</strong> Manual work eliminated; a daily automated report tracks a 136-lead funnel (contacted / interested / refused / ignored) with zero-error runs — decision-ready visibility for the operation.',
+
+                c3_type: 'Project Analyst',
+                c3_title: 'YDUQS — Laboratory Infrastructure Management',
+                c3_challenge: '<strong>Challenge:</strong> A heterogeneous lab fleet, courses with distinct processing demands, and the risk of unnecessary spending on full machine replacements.',
+                c3_did: '<strong>What I did:</strong> Mapped and classified the fleet by usage, cross-referenced it with network-collected status data (Azure), and structured the update, maintenance and replacement schedule, reporting progress weekly to the board.',
+                c3_decision: '<strong>Key decision:</strong> Prioritized component replacement (memory) over swapping whole machines — a decision driven by usage data, not equipment age.',
+                c3_impact: '<strong>Impact:</strong> Direct hardware savings and data-driven maintenance, with no unnecessary displacement of the local team.',
+
+                c4_type: 'Developer',
+                c4_title: 'Automated Lead Collector (Brazilian MEI + mobile)',
+                c4_challenge: '<strong>Challenge:</strong> B2B prospecting depended on unfeasible manual collection of newly opened companies with valid mobile numbers, by city and period.',
+                c4_did: '<strong>What I did:</strong> Automated the consumption of two public APIs, established data normalization and validation (Brazilian tax-ID and mobile formats), and handled rate limits with progressive backoff and progress saving.',
+                c4_decision: '<strong>Key decision:</strong> Designed the collection to be resilient — it resumes from where it stopped — rather than fast and fragile.',
+                c4_impact: '<strong>Impact:</strong> Prospecting lists generated automatically by city/period, eliminating manual search. A lesson that became a principle: traceability and data quality are a first-stage requirement of the pipeline, not a last-stage fix.',
+
+                c5_type: 'Requirements Analyst',
+                c5_title: 'TIM — Legacy System → ServiceNow (~5,000 users)',
+                c5_challenge: '<strong>Challenge:</strong> An undocumented legacy system used by ~5,000 people had to migrate to ServiceNow within 8 months — requirements lived only in people\'s heads.',
+                c5_did: '<strong>What I did:</strong> Decomposed ambiguous operational demands into structured, testable requirements; ran functional tests and acceptance rounds; translated decisions for technical and executive audiences, each in their own language.',
+                c5_decision: '<strong>Key decision:</strong> Formalized explicit acceptance criteria per demand before development — removing ambiguity at the source instead of discovering it during acceptance.',
+                c5_impact: '<strong>Impact:</strong> Migration delivered on the 8-month deadline for ~5,000 users; rework cycles with the outsourced team dropped as divergent interpretations were eliminated upstream.'
+            }
+        };
+
+        function setLang(lang) {
+            const dict = i18n[lang];
+            document.querySelectorAll('[data-key]').forEach(el => {
+                const v = dict[el.dataset.key];
+                if (v !== undefined) el.innerHTML = v;
+            });
+            document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
+            document.getElementById('btn-pt').classList.toggle('active', lang === 'pt');
+            document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+            try { localStorage.setItem('lang', lang); } catch (e) {}
+        }
+
+        // Idioma inicial: escolha salva > idioma do navegador > EN
+        let initial = null;
+        try { initial = localStorage.getItem('lang'); } catch (e) {}
+        if (initial !== 'pt' && initial !== 'en') {
+            initial = (navigator.language || '').toLowerCase().startsWith('pt') ? 'pt' : 'en';
+        }
+        setLang(initial);
     </script>
 </body>
 </html>
